@@ -1,0 +1,49 @@
+version: '3.7'
+services:
+  nodejs:
+    container_name: "fs-nodejs-${DOCKER_BUILD_TAG}"
+    image: "fs-nodejs:${DOCKER_BUILD_TAG}"
+    build:
+      context: ./
+      dockerfile: ./.docker/nodejs/Dockerfile
+    env_file:
+      - .env
+    stdin_open: true
+    volumes:
+      - code:/node/
+    ports:
+      - '3000:3000'
+    command: bash -c "yarn install && yarn dev"
+
+  nginx:
+    container_name: "fs-nginx-${DOCKER_BUILD_TAG}"
+    image: "fs-nginx:${DOCKER_BUILD_TAG}"
+    build:
+      context: ./
+      dockerfile: ./.docker/nginx/Dockerfile
+    ports:
+      - '80:8080'
+
+volumes:
+  code:
+
+x-mutagen:
+  sync:
+    defaults:
+      ignore:
+        vcs: true
+        paths:
+          - "node_modules/"
+          - ".build/"
+          - ".docker/"
+          - ".idea/"
+
+    code:
+      alpha: "."
+      beta: "volume://code/app"
+      mode: "two-way-resolved"
+      scanMode: "accelerated"
+      configurationBeta:
+        permissions:
+          defaultOwner: "id:0"
+          defaultGroup: "id:0"

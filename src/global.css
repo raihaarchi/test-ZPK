@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "Suisse Int'l";
+  src: url('/fonts/SuisseIntl-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  src: url('/fonts/SuisseIntl-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Int'l Semi";
+  src: url('/fonts/SuisseIntl-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Int'l";
+  src: url('/fonts/SuisseIntl-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: "Suisse Int'l", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+button, button:active, button:focus {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  outline: none;
+}
+
+input,
+textarea {
+  font-size: 16px;
+  appearance: none;
+  resize: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a[href^='tel'] {
+  color: inherit;
+}
+
+.wrapper {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 80px;
+  margin: 0 auto;
+}
+
+.promo-wrapper {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.layout-wrapper {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.loading-overlay {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@media (max-width: 1439px) {
+  .wrapper {
+    padding: 0 60px;
+  }
+
+  .layout-wrapper {
+    padding: 0 20px;
+  }
+
+  .promo-wrapper {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .wrapper {
+    padding: 0 40px;
+  }
+
+  .layout-wrapper {
+    padding: 0 10px;
+  }
+
+  .promo-wrapper {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 0 15px;
+  }
+
+  .layout-wrapper {
+    padding: 0;
+  }
+
+  .promo-wrapper {
+    padding: 0;
+  }
+}
